@@ -413,14 +413,14 @@ class GeneticAlgorithm {
 
   checkAllDead() {
     if (this.birds.every((bird) => bird.isDead)) {
-      this.timeout = Math.max(this.generation * 500, 3000);
+      this.timeout = Math.min(this.generation * 500, 3000);
       this.nextGeneration();
     }
   }
 
   checkTimeout() {
     if (this.timeout <= 0) {
-      this.timeout = Math.max(this.generation * 500, 3000);
+      this.timeout = Math.min(this.generation * 500, 3000);
       this.nextGeneration();
     }
   }
